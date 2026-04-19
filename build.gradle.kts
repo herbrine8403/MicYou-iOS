@@ -3,3 +3,11 @@ plugins {
     kotlin("plugin.serialization") version "2.2.20" apply false
     id("org.jetbrains.compose") version "1.7.3" apply false
 }
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+}
