@@ -21,6 +21,15 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Ensure Gradle wrapper is available
+        run: |
+          if [ -x ./gradlew ]; then
+            echo "Using project wrapper"
+          else
+            echo "Using system gradle"
+            echo "GRADLE=gradle" >> "$GITHUB_ENV"
+          fi
+
       - name: Build shared module
         run: make shared-build
 
