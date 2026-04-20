@@ -36,18 +36,38 @@ jobs:
       - name: Build iOS app scaffold
         run: make ios-sim-build
 
-      - name: Collect iPA artifacts
+      - name: Collect build artifacts
         if: always()
         run: |
+          set -euo pipefail
           mkdir -p ci-artifacts
-          find . -type f \( -name "*.ipa" -o -name "*.xcarchive" -o -name "problems-report.html" \) -print0 | while IFS= read -r -d '' file; do
-            cp -R "$file" ci-artifacts/
-          done
 
-      - name: Upload iPA artifacts
+          copy_artifact() {
+            local file="$1"
+            local target="ci-artifacts/$(basename "$file")"
+            if [ -d "$file" ]; then
+              rm -rf "$target"
+              cp -R "$file" "$target"
+            else
+              cp "$file" "$target"
+            fi
+          }
+
+          found=0
+          while IFS= read -r -d '' file; do
+            found=1
+            copy_artifact "$file"
+          done < <(find . -type f \( -name "*.ipa" -o -name "*.xcarchive" -o -name "problems-report.html" -o -name "*.app" \) -print0)
+
+          if [ "$found" -eq 0 ]; then
+            echo "No IPA or archive was produced by this repository build."
+            echo "The iOS workflow currently builds the Kotlin/Multiplatform app scaffold, so the available outputs are build reports and compiled app bundles when present."
+          fi
+
+      - name: Upload build artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: micyou-ios-ipa-and-reports
+          name: micyou-ios-build-artifacts
           path: ci-artifacts/**
           if-no-files-found: ignore
