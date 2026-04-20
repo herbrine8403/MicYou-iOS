@@ -1,0 +1,40 @@
+name: MicYou-iOS
+options:
+  bundleIdPrefix: com.micyou.ios
+configs:
+  Debug: debug
+  Release: release
+targets:
+  MicYouIOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: iosApp/src/main/kotlin
+      - path: iosApp/src/iosMain/kotlin
+      - path: iosApp/src/main/objc
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.micyou.ios
+        INFOPLIST_FILE: iosApp/Info.plist
+        SWIFT_VERSION: 5.0
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        ENABLE_BITCODE: NO
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: 1,2
+    preBuildScripts:
+      - script: |
+          echo "XcodeGen generated project for MicYou iOS"
+    dependencies:
+      - sdk: UIKit.framework
+      - sdk: Foundation.framework
+      - sdk: AVFoundation.framework
+      - sdk: CoreAudio.framework
+schemes:
+  MicYouIOS:
+    build:
+      targets:
+        MicYouIOS: all
+    archive:
+      config: Release

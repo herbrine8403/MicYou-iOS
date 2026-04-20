@@ -13,19 +13,40 @@ fun MicYouApp() {
     val status = remember { mutableStateOf("Idle") }
     val host = remember { mutableStateOf("127.0.0.1") }
     val port = remember { mutableStateOf("5000") }
+    val vm = remember { ConnectionViewModel() }
 
     MaterialTheme {
         Column {
             Text("MicYou iOS")
             Text("Host: ${host.value}")
             Text("Port: ${port.value}")
-            Button(onClick = { status.value = "Audio capture scaffold ready" }) {
+            Button(onClick = {
+                vm.updateHost(host.value)
+                vm.updatePort(port.value)
+                vm.prepareAudio()
+                status.value = vm.currentState().status
+            }) {
                 Text("Prepare Audio Capture")
             }
-            Button(onClick = { status.value = "Connected to host" }) {
+            Button(onClick = {
+                vm.updateHost(host.value)
+                vm.updatePort(port.value)
+                vm.connect()
+                status.value = vm.currentState().status
+            }) {
                 Text("Connect")
             }
-            Button(onClick = { status.value = "Disconnected" }) {
+            Button(onClick = {
+                vm.startCapture()
+                status.value = vm.currentState().status
+            }) {
+                Text("Start Capture")
+            }
+            Button(onClick = {
+                vm.stopCapture()
+                vm.disconnect()
+                status.value = vm.currentState().status
+            }) {
                 Text("Disconnect")
             }
             Text("Status: ${status.value}")

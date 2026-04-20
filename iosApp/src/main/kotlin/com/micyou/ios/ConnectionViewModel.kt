@@ -17,17 +17,19 @@ class ConnectionViewModel {
         state = state.copy(status = audioSession.prepare())
     }
 
+    fun connect() {
+        val portNumber = state.port.toIntOrNull() ?: 5000
+        state = state.copy(status = audioSession.attachTransport(state.host, portNumber))
+        state = state.copy(connected = true, status = audioSession.sendHello())
+        bridge.startConnection(state.host, portNumber)
+    }
+
     fun startCapture() {
         state = state.copy(status = audioSession.startCapture())
     }
 
     fun stopCapture() {
         state = state.copy(status = audioSession.stopCapture())
-    }
-
-    fun connect() {
-        bridge.startConnection(state.host, state.port.toIntOrNull() ?: 5000)
-        state = state.copy(connected = true, status = "Connecting")
     }
 
     fun disconnect() {

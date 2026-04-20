@@ -18,23 +18,19 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Set up XcodeGen
+        run: brew install xcodegen
+
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-
-      - name: Ensure Gradle wrapper is available
-        run: |
-          if [ -x ./gradlew ]; then
-            echo "Using project wrapper"
-          else
-            echo "Using system gradle"
-            echo "GRADLE=gradle" >> "$GITHUB_ENV"
-          fi
 
       - name: Build shared module
         run: make shared-build
 
-      - name: Build iOS app scaffold
-        run: make ios-sim-build
+      - name: Generate Xcode project and export IPA
+        run: |
+          chmod +x scripts/build-ipa.sh
+          scripts/build-ipa.sh
 
       - name: Collect build artifacts
         if: always()
@@ -57,11 +53,10 @@ jobs:
           while IFS= read -r -d '' file; do
             found=1
             copy_artifact "$file"
-          done < <(find . -type f \( -name "*.ipa" -o -name "*.xcarchive" -o -name "problems-report.html" -o -name "*.app" \) -print0)
+          done < <(find . -type f \( -name "*.ipa" -o -name "*.xcarchive" -o -name "problems-report.html" \) -print0)
 
           if [ "$found" -eq 0 ]; then
             echo "No IPA or archive was produced by this repository build."
-            echo "The iOS workflow currently builds the Kotlin/Multiplatform app scaffold, so the available outputs are build reports and compiled app bundles when present."
           fi
 
       - name: Upload build artifacts
