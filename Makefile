@@ -1,15 +1,13 @@
-.PHONY: help shared-build ios-sim-build clean
-
-GRADLE ?= gradle
+.PHONY: help shared-build ios-build clean
 
 help:
-	@echo "Targets: shared-build ios-sim-build clean"
+	@echo "Targets: shared-build ios-build clean"
 
 shared-build:
-	$(GRADLE) :shared:build
+	./gradlew :shared:build
 
-ios-sim-build:
-	$(GRADLE) :iosApp:build
+ios-build:
+	xcodegen generate && xcodebuild -project MicYou-iOS.xcodeproj -scheme MicYouIOS -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15' CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
 
 clean:
-	$(GRADLE) clean
+	./gradlew clean

@@ -27,21 +27,17 @@ jobs:
       - name: Build shared module
         run: make shared-build
 
-      - name: Generate Xcode project and build unsigned app bundle
-        run: |
-          chmod +x scripts/build-ipa.sh
-          scripts/build-ipa.sh
+      - name: Build iOS app
+        run: make ios-build
 
-      - name: Zip unsigned app bundle
+      - name: Zip app bundle if present
         if: always()
         run: |
           set -euo pipefail
           mkdir -p ci-artifacts
-          if [ -d build/unsigned/MicYouIOS.app ]; then
-            ditto -c -k --sequesterRsrc --keepParent build/unsigned/MicYouIOS.app ci-artifacts/MicYouIOS.app.zip
-          fi
-          if [ -f build/MicYouIOS.xcarchive ]; then
-            ditto -c -k --sequesterRsrc --keepParent build/MicYouIOS.xcarchive ci-artifacts/MicYouIOS.xcarchive.zip
+          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -type d -path '*Build/Products/Release-iphonesimulator/*.app' -maxdepth 8 2>/dev/null | head -n 1 || true)
+          if [ -n "$APP_PATH" ] && [ -d "$APP_PATH" ]; then
+            ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" ci-artifacts/MicYouIOS.app.zip
           fi
           if [ -f build/reports/problems/problems-report.html ]; then
             cp build/reports/problems/problems-report.html ci-artifacts/problems-report.html

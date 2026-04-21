@@ -10,8 +10,7 @@ targets:
     platform: iOS
     deploymentTarget: "15.0"
     sources:
-      - path: iosApp/src/main/kotlin
-      - path: iosApp/src/iosMain/kotlin
+      - path: iosApp/src/main/swift
       - path: iosApp/src/main/objc
     settings:
       base:
@@ -19,13 +18,9 @@ targets:
         INFOPLIST_FILE: iosApp/Info.plist
         SWIFT_VERSION: 5.0
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: "TEAMIDPLACEHOLDER"
-        CODE_SIGN_IDENTITY: "Apple Development"
         ENABLE_BITCODE: NO
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: 1,2
-        XCODE_VERSION_ACTUAL: 1540
-        CLANG_ENABLE_MODULES: YES
         IPHONEOS_DEPLOYMENT_TARGET: 15.0
     preBuildScripts:
       - script: |
@@ -33,6 +28,7 @@ targets:
     dependencies:
       - sdk: UIKit.framework
       - sdk: Foundation.framework
+      - sdk: SwiftUI.framework
       - sdk: AVFoundation.framework
       - sdk: CoreAudio.framework
 schemes:
