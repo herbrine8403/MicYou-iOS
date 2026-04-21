@@ -1,9 +1,13 @@
 name: MicYou-iOS
 options:
   bundleIdPrefix: com.micyou.ios
+  xcodeVersion: "15.4"
 configs:
   Debug: debug
   Release: release
+settings:
+  base:
+    OBJECT_VERSION: 56
 targets:
   MicYouIOS:
     type: application
