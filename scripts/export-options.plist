@@ -11,6 +11,6 @@
     <key>stripSwiftSymbols</key>
     <true/>
     <key>signingStyle</key>
-    <string>automatic</string>
+    <string>manual</string>
 </dict>
 </plist>

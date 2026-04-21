@@ -27,36 +27,24 @@ jobs:
       - name: Build shared module
         run: make shared-build
 
-      - name: Generate Xcode project and export IPA
+      - name: Generate Xcode project and build unsigned app bundle
         run: |
           chmod +x scripts/build-ipa.sh
           scripts/build-ipa.sh
 
-      - name: Collect build artifacts
+      - name: Zip unsigned app bundle
         if: always()
         run: |
           set -euo pipefail
           mkdir -p ci-artifacts
-
-          copy_artifact() {
-            local file="$1"
-            local target="ci-artifacts/$(basename "$file")"
-            if [ -d "$file" ]; then
-              rm -rf "$target"
-              cp -R "$file" "$target"
-            else
-              cp "$file" "$target"
-            fi
-          }
-
-          found=0
-          while IFS= read -r -d '' file; do
-            found=1
-            copy_artifact "$file"
-          done < <(find . -type f \( -name "*.ipa" -o -name "*.xcarchive" -o -name "problems-report.html" \) -print0)
-
-          if [ "$found" -eq 0 ]; then
-            echo "No IPA or archive was produced by this repository build."
+          if [ -d build/unsigned/MicYouIOS.app ]; then
+            ditto -c -k --sequesterRsrc --keepParent build/unsigned/MicYouIOS.app ci-artifacts/MicYouIOS.app.zip
+          fi
+          if [ -f build/MicYouIOS.xcarchive ]; then
+            ditto -c -k --sequesterRsrc --keepParent build/MicYouIOS.xcarchive ci-artifacts/MicYouIOS.xcarchive.zip
+          fi
+          if [ -f build/reports/problems/problems-report.html ]; then
+            cp build/reports/problems/problems-report.html ci-artifacts/problems-report.html
           fi
 
       - name: Upload build artifacts

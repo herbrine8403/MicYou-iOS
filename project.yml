@@ -19,7 +19,8 @@ targets:
         INFOPLIST_FILE: iosApp/Info.plist
         SWIFT_VERSION: 5.0
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: ""
+        DEVELOPMENT_TEAM: "TEAMIDPLACEHOLDER"
+        CODE_SIGN_IDENTITY: "Apple Development"
         ENABLE_BITCODE: NO
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: 1,2
