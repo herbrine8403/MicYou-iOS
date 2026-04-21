@@ -23,6 +23,9 @@ targets:
         ENABLE_BITCODE: NO
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: 1,2
+        XCODE_VERSION_ACTUAL: 1540
+        CLANG_ENABLE_MODULES: YES
+        IPHONEOS_DEPLOYMENT_TARGET: 15.0
     preBuildScripts:
       - script: |
           echo "XcodeGen generated project for MicYou iOS"
