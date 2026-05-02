@@ -61,7 +61,7 @@ jobs:
       - name: Build Shared Module
         run: ./gradlew :shared:build
 
-      - name: Build iOS Framework (Device)
+      - name: Build iOS Framework
         run: ./gradlew :iosApp:linkDebugFrameworkIosArm64
 
       - name: Find and Copy Framework
@@ -85,14 +85,6 @@ jobs:
             ls -la iosApp/build/bin/iosArm64/debug/ 2>/dev/null || echo "No debug dir"
             ls -la iosApp/build/libs/ 2>/dev/null || echo "No libs dir"
           fi
-
-      - name: Update project.yml with Framework Path
-        if: steps.find-framework.outputs.framework_path != ''
-        run: |
-          FRAMEWORK_PATH="${{ steps.find-framework.outputs.framework_path }}"
-          FRAMEWORK_NAME=$(basename "$FRAMEWORK_PATH")
-          sed -i '' "s|FRAMEWORK_PLACEHOLDER|$FRAMEWORK_PATH|g" iosApp/project.yml
-          echo "Updated project.yml with framework: $FRAMEWORK_PATH"
 
       - name: Install XcodeGen
         run: |
