@@ -1,58 +1,139 @@
-> Task :iosApp:transformIosMainDependenciesMetadata
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:12:5 'application' overrides nothing. Potential signatures for overriding:
-expect fun application(app: UIApplication, openURL: NSURL, options: Map<Any?, *>): Boolean
-> Task :iosApp:compileIosMainKotlinMetadata FAILED
-expect fun application(application: UIApplication, willContinueUserActivityWithType: String): Boolean
-expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forLocalNotification: UILocalNotification, withResponseInfo: Map<Any?, *>, completionHandler: () -> Unit): Unit
-expect fun application(application: UIApplication, openURL: NSURL, sourceApplication: String?, annotation: Any): Boolean
-expect fun application(application: UIApplication, performActionForShortcutItem: UIApplicationShortcutItem, completionHandler: (Boolean) -> Unit): Unit
-expect fun application(application: UIApplication, supportedInterfaceOrientationsForWindow: UIWindow?): ULong
-expect fun application(application: UIApplication, userDidAcceptCloudKitShareWithMetadata: CKShareMetadata): Unit
-expect fun application(application: UIApplication, didReceiveLocalNotification: UILocalNotification): Unit
-expect fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean
-expect fun application(application: UIApplication, didReceiveRemoteNotification: Map<Any?, *>): Unit
-expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forLocalNotification: UILocalNotification, completionHandler: () -> Unit): Unit
-expect fun application(application: UIApplication, didDecodeRestorableStateWithCoder: NSCoder): Unit
-expect fun application(application: UIApplication, shouldRestoreSecureApplicationState: NSCoder): Boolean
-expect fun application(application: UIApplication, shouldSaveApplicationState: NSCoder): Boolean
-expect fun application(application: UIApplication, didRegisterUserNotificationSettings: UIUserNotificationSettings): Unit
-expect fun application(application: UIApplication, didFailToContinueUserActivityWithType: String, error: NSError): Unit
-expect fun application(application: UIApplication, handleOpenURL: NSURL): Boolean
-expect fun application(application: UIApplication, handleEventsForBackgroundURLSession: String, completionHandler: () -> Unit): Unit
-expect fun application(application: UIApplication, didChangeStatusBarFrame: CValue<CGRect>): Unit
-expect fun application(application: UIApplication, willFinishLaunchingWithOptions: Map<Any?, *>?): Boolean
-expect fun application(application: UIApplication, willEncodeRestorableStateWithCoder: NSCoder): Unit
-expect fun application(application: UIApplication, handlerForIntent: INIntent): Any?
-expect fun application(application: UIApplication, willChangeStatusBarFrame: CValue<CGRect>): Unit
-expect fun application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken: NSData): Unit
-expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forRemoteNotification: Map<Any?, *>, completionHandler: () -> Unit): Unit
-expect fun application(application: UIApplication, viewControllerWithRestorationIdentifierPath: List<*>, coder: NSCoder): UIViewController?
-expect fun application(application: UIApplication, continueUserActivity: NSUserActivity, restorationHandler: (List<*>?) -> Unit): Boolean
-expect fun application(application: UIApplication, performFetchWithCompletionHandler: (UIBackgroundFetchResult) -> Unit): Unit
-expect fun application(application: UIApplication, handleWatchKitExtensionRequest: Map<Any?, *>?, reply: (Map<Any?, *>?) -> Unit): Unit
-expect fun application(application: UIApplication, shouldAllowExtensionPointIdentifier: String?): Boolean
-expect fun application(application: UIApplication, shouldSaveSecureApplicationState: NSCoder): Boolean
-expect fun application(application: UIApplication, willChangeStatusBarOrientation: Long, duration: Double): Unit
-expect fun application(application: UIApplication, didReceiveRemoteNotification: Map<Any?, *>, fetchCompletionHandler: (UIBackgroundFetchResult) -> Unit): Unit
-expect fun application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError: NSError): Unit
-expect fun application(application: UIApplication, didDiscardSceneSessions: Set<*>): Unit
-expect fun application(application: UIApplication, didUpdateUserActivity: NSUserActivity): Unit
-expect fun application(application: UIApplication, handleIntent: INIntent, completionHandler: (INIntentResponse?) -> Unit): Unit
-expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forRemoteNotification: Map<Any?, *>, withResponseInfo: Map<Any?, *>, completionHandler: () -> Unit): Unit
-expect fun application(application: UIApplication, configurationForConnectingSceneSession: UISceneSession, options: UISceneConnectionOptions): UISceneConfiguration
-expect fun application(application: UIApplication, didChangeStatusBarOrientation: Long): Unit
-expect fun application(application: UIApplication, shouldRestoreApplicationState: NSCoder): Boolean
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:9:12 The 'expect' and the 'actual' declarations are incompatible.
-  expect: public final expect fun MainViewController(): Any
-  actual: public final actual fun MainViewController(): UIViewController
-  reason: the return types are different
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:8:8 Unresolved reference 'objc'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:32:34 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
-fun NSData.toByteArray(): ByteArray
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:53:26 Unresolved reference 'MicYouAudioBridgeOC'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:19:25 Unresolved reference 'htons'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:20:9 Unresolved reference 'inet_pton'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:40:25 Unresolved reference 'htons'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:41:9 Unresolved reference 'inet_pton'.
-[Incubating] Problems report is available at: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/build/reports/problems/problems-report.html
-FAILURE: Build failed with an exception.
+Command line invocation:
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/xcodebuild -project iosApp.xcodeproj -scheme iosApp -configuration Debug -destination "platform=iOS Simulator,name=iPhone 15" -derivedDataPath build/DerivedData CODE_SIGN_IDENTITY=- CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
+User defaults from command line:
+    IDEDerivedDataPathOverride = /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData
+    IDEPackageSupportUseBuiltinSCM = YES
+Build settings from command line:
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGNING_ALLOWED = NO
+    CODE_SIGNING_REQUIRED = NO
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS Simulator, id:FA790A7F-76A6-45FE-8CA2-263FCDAE9035, OS:18.2, name:iPhone 15 }
+{ platform:iOS Simulator, id:FA790A7F-76A6-45FE-8CA2-263FCDAE9035, OS:18.2, name:iPhone 15 }
+Prepare packages
+note: Using codesigning identity override: -
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (1 target)
+    Target 'iosApp' in project 'iosApp' (no dependencies)
+GatherProvisioningInputs
+CreateBuildDescription
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -x objective-c -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -x c -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/resources/Assets.xcassets
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -v
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -x c -c /dev/null
+ExecuteExternalTool /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+Build description signature: cb27a15b4d336abfb727f2de5f3fbfee
+Build description path: /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/XCBuildData/cb27a15b4d336abfb727f2de5f3fbfee.xcbuilddata
+ClangStatCache /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/SDKStatCaches.noindex/iphonesimulator17.5-21F77-23950cd4b3f73050108268841b0fa1a8.sdkstatcache
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/iosApp.xcodeproj
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -o /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/SDKStatCaches.noindex/iphonesimulator17.5-21F77-23950cd4b3f73050108268841b0fa1a8.sdkstatcache
+CreateBuildDirectory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/iosApp.xcodeproj
+    builtin-create-build-directory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products
+CreateBuildDirectory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/iosApp.xcodeproj
+    builtin-create-build-directory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex
+CreateBuildDirectory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/iosApp.xcodeproj
+    builtin-create-build-directory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator
+CreateBuildDirectory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/iosApp.xcodeproj
+    builtin-create-build-directory /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+MkDir /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    /bin/mkdir -p /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/all-product-headers.yaml (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/all-product-headers.yaml
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-project-headers.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-project-headers.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-own-target-headers.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-own-target-headers.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-generated-files.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-generated-files.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-all-target-headers.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-all-target-headers.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-all-non-framework-target-headers.hmap (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-all-non-framework-target-headers.hmap
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.LinkFileList (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.LinkFileList
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/iosApp_const_extract_protocols.json (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/iosApp_const_extract_protocols.json
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/iosApp-OutputFileMap.json (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/iosApp-OutputFileMap.json
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/e6072d4f65d7061329687fe24e3d63a7-common-args.resp
+-target arm64-apple-ios14.0-simulator '-std=gnu11' -fobjc-arc -fobjc-weak -fmodules -gmodules '-fmodules-cache-path=/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/ModuleCache.noindex' -fpascal-strings -O0 -fno-common '-DDEBUG=1' '-DOBJC_OLD_DISPATCH_PROTOTYPES=0' -isysroot /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -g '-fobjc-abi-version=2' -fobjc-legacy-dispatch -iquote /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-generated-files.hmap -I/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-own-target-headers.hmap -I/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/MicYou-all-target-headers.hmap -iquote /Users/runner/work/MicYo
+WriteAuxiliaryFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.SwiftFileList (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    write-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.SwiftFileList
+GenerateAssetSymbols /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/resources/Assets.xcassets (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 14.0 --platform iphonesimulator --compile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/resources/Assets.xcassets --bundle-identifier com.micyou.ios.MicYou --generate-swift-asset-symbol-extensions NO --generate-swi
+/* com.apple.actool.compilation-results */
+/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift
+CpResource /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app/log.txt /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/objc/log.txt (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/objc/log.txt /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app
+CompileAssetCatalog /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/resources/Assets.xcassets (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    /Applications/Xcode_15.4.app/Contents/Developer/usr/bin/actool --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_generated_info.plist --app-icon AppIcon --compress-pngs --enable-on-demand-resources YES --filter-for-thinning-device-configuration iPhone15,4 --filter-for-device-os-version 18.2 --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 14.0 --platform iphonesimulator --compile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/resources/Assets.xcassets
+/* com.apple.actool.compilation-results */
+/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_generated_info.plist
+ProcessInfoPlistFile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app/Info.plist /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/Info.plist (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-infoPlistUtility /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -additionalcontentfile /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/assetcatalog_generated_info.plist -o /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator/MicYou.app/Info.plist
+SwiftDriver iosApp normal arm64 com.apple.xcode.tools.swift.compiler (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-SwiftDriver -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MicYou -Onone -enforce-exclusivity\=checked @/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.SwiftFileList -DDEBUG -sdk /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -target arm64-apple-ios14.0-simulator -enable-bare-slash-regex -g -module-cache-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/Derive
+SwiftCompile normal arm64 Compiling\ ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-swiftTaskExecution -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift -primary-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -emit-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/ContentView.d -emit-const-values-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/ContentView.swiftconstvalues -emit-reference-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/
+SwiftCompile normal arm64 /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -c /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift -primary-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -emit-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/ContentView.d -emit-const-values-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/ContentView.swiftconstvalues -emit-reference-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build
+/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift:21:16: error: cannot find 'IosAppEntryKt' in scope
+        return IosAppEntryKt.createMainViewController()
+               ^~~~~~~~~~~~~
+SwiftEmitModule normal arm64 Emitting\ module\ for\ MicYou (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-swiftTaskExecution -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -emit-module -experimental-skip-non-inlinable-function-bodies-without-types /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -target arm64-apple-ios14.0-simulator -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -I /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator -no-color-diagnostics -enable-testin
+SwiftCompile normal arm64 Compiling\ GeneratedAssetSymbols.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-swiftTaskExecution -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift -primary-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -emit-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/GeneratedAssetSymbols.d -emit-const-values-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues -emit-reference-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosAp
+SwiftCompile normal arm64 /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -c /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift -primary-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -emit-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/GeneratedAssetSymbols.d -emit-const-values-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues -emit-reference-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.
+SwiftDriverJobDiscovery normal arm64 Emitting module for MicYou (in target 'iosApp' from project 'iosApp')
+SwiftCompile normal arm64 Compiling\ App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-swiftTaskExecution -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c -primary-file /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/DerivedSources/GeneratedAssetSymbols.swift -emit-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/App.d -emit-const-values-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/App.swiftconstvalues -emit-reference-dependencies-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermedia
+Command SwiftCompile failed with a nonzero exit code
+SwiftDriverJobDiscovery normal arm64 Compiling GeneratedAssetSymbols.swift (in target 'iosApp' from project 'iosApp')
+SwiftDriver\ Compilation\ Requirements iosApp normal arm64 com.apple.xcode.tools.swift.compiler (in target 'iosApp' from project 'iosApp')
+    cd /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_15.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name MicYou -Onone -enforce-exclusivity\=checked @/Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Intermediates.noindex/iosApp.build/Debug-iphonesimulator/iosApp.build/Objects-normal/arm64/MicYou.SwiftFileList -DDEBUG -sdk /Applications/Xcode_15.4.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator17.5.sdk -target arm64-apple-ios14.0-simulator -enable-bare-slash-regex -g -module-cache-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Index.noindex/DataStore -swift-version 5 -I /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/DerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/MicYou-iOS/MicYou-iOS/
+** BUILD FAILED **
+The following build commands failed:
+	SwiftCompile normal arm64 /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift (in target 'iosApp' from project 'iosApp')
+	SwiftCompile normal arm64 Compiling\ ContentView.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/ContentView.swift (in target 'iosApp' from project 'iosApp')
+	SwiftCompile normal arm64 Compiling\ App.swift /Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/main/swift/App.swift (in target 'iosApp' from project 'iosApp')
+(3 failures)
+Error: Process completed with exit code 65.

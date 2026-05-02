@@ -62,18 +62,23 @@ jobs:
         run: ./gradlew :shared:build
 
       - name: Build iOS Framework
-        run: ./gradlew :iosApp:build
+        run: ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64
 
-      - name: Copy Framework
+      - name: Find and Copy Framework
+        id: find-framework
         run: |
           FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
+          FRAMEWORK_NAME=$(basename "$FRAMEWORK_DIR")
           mkdir -p iosApp/build/libs
-          if [ -d "$FRAMEWORK_DIR" ]; then
-            cp -r "$FRAMEWORK_DIR" iosApp/build/libs/
-            echo "Copied framework to iosApp/build/libs/"
-          else
-            echo "Warning: No framework found"
-          fi
+          cp -r "$FRAMEWORK_DIR" iosApp/build/libs/
+          echo "framework_path=iosApp/build/libs/$FRAMEWORK_NAME" >> $GITHUB_OUTPUT
+          echo "Found and copied framework: $FRAMEWORK_NAME"
+
+      - name: Update project.yml with Framework Path
+        run: |
+          FRAMEWORK_PATH="${{ steps.find-framework.outputs.framework_path }}"
+          FRAMEWORK_NAME=$(basename "$FRAMEWORK_PATH")
+          sed -i '' "s|FRAMEWORK_PLACEHOLDER|$FRAMEWORK_PATH|g" iosApp/project.yml
 
       - name: Install XcodeGen
         run: |

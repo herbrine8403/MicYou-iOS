@@ -40,4 +40,6 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.micyou.ios.MicYou
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: "YES"
-    dependencies: []
+    dependencies:
+      - framework: FRAMEWORK_PLACEHOLDER
+        embed: true
