@@ -10,6 +10,7 @@ on:
       - '**/*.swift'
       - '**/*.m'
       - '**/*.h'
+      - '**/*.yml'
   pull_request:
     branches: [ main, master ]
     paths:
@@ -19,11 +20,13 @@ on:
       - '**/*.swift'
       - '**/*.m'
       - '**/*.h'
+      - '**/*.yml'
 
 env:
-  CODE_SIGN_IDENTITY: ""
+  CODE_SIGN_IDENTITY: "-"
   CODE_SIGNING_REQUIRED: "NO"
   CODE_SIGNING_ALLOWED: "NO"
+  Xcode_VERSION: "15.2"
 
 jobs:
   build:
@@ -55,58 +58,57 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: List Available Tasks
-        run: ./gradlew :iosApp:tasks --group=build | head -50
-
       - name: Build Shared Module
         run: ./gradlew :shared:build
 
       - name: Build iOS Framework
-        run: ./gradlew :iosApp:build
+        run: ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64
 
-      - name: Find Framework
-        id: find-framework
+      - name: Copy Framework
         run: |
           FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
-          echo "framework_dir=$FRAMEWORK_DIR" >> $GITHUB_OUTPUT
-          echo "Found framework:"
-          echo "$FRAMEWORK_DIR"
-
-      - name: Create .app Structure
-        run: |
-          APP_DIR="iosApp/build/DerivedData/MicYou.app"
-          FRAMEWORK_PATH="${{ steps.find-framework.outputs.framework_dir }}"
-          
-          mkdir -p "$APP_DIR/Contents/MacOS"
-          mkdir -p "$APP_DIR/Contents/Resources"
-          
-          if [ -d "$FRAMEWORK_PATH" ]; then
-            cp -r "$FRAMEWORK_PATH" "$APP_DIR/Contents/Frameworks/"
+          mkdir -p iosApp/build/libs
+          if [ -d "$FRAMEWORK_DIR" ]; then
+            cp -r "$FRAMEWORK_DIR" iosApp/build/libs/
+            echo "Copied framework to iosApp/build/libs/"
+          else
+            echo "Warning: No framework found"
           fi
-          
-          # Create minimal Info.plist
-          cat > "$APP_DIR/Contents/Info.plist" << 'EOF'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-            <key>CFBundleExecutable</key>
-            <string>MacOS/MicYou</string>
-            <key>CFBundleIdentifier</key>
-            <string>com.micyou.ios.MicYou</string>
-            <key>CFBundleName</key>
-            <string>MicYou</string>
-            <key>CFBundlePackageType</key>
-            <string>APPL</string>
-            <key>CFBundleShortVersionString</key>
-            <string>1.0</string>
-            <key>CFBundleVersion</key>
-            <string>1</string>
-          </dict>
-          </plist>
-          EOF
-          
-          echo "Created app structure at: $APP_DIR"
+
+      - name: Install XcodeGen
+        run: |
+          which xcodegen || brew install xcodegen
+
+      - name: Generate Xcode Project
+        run: |
+          cd iosApp
+          xcodegen generate
+          ls -la *.xcodeproj 2>/dev/null || echo "No xcodeproj found"
+
+      - name: Build .app with Xcode
+        env:
+          CODE_SIGN_IDENTITY: "-"
+          CODE_SIGNING_REQUIRED: "NO"
+          CODE_SIGNING_ALLOWED: "NO"
+        run: |
+          cd iosApp
+          xcodebuild -project iosApp.xcodeproj \
+            -scheme iosApp \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Find .app Bundle
+        id: find-app
+        run: |
+          APP_PATH=$(find iosApp/build/DerivedData -name "*.app" -type d 2>/dev/null | head -1)
+          echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
+          echo "Found app bundle:"
+          echo "$APP_PATH"
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
@@ -114,7 +116,9 @@ jobs:
           name: ios-build-artifacts
           path: |
             iosApp/build/**/*.framework
+            iosApp/build/libs/**/*.framework
             iosApp/build/DerivedData/**/*.app
+            iosApp/build/DerivedData/**/*.dSYM
             shared/build/**/*.klib
             build/reports/
           retention-days: 7
