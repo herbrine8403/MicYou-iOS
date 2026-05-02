@@ -1,34 +1,121 @@
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:5:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:6:22 Unresolved reference 'compose'.
-> Task :iosApp:compileCommonMainKotlinMetadata FAILED
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:7:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:8:22 Unresolved reference 'compose'.
-[Incubating] Problems report is available at: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/build/reports/problems/problems-report.html
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:9:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:10:22 Unresolved reference 'compose'.
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:12:2 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:13:57 Unresolved reference 'DrawableResource'.
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:15:2 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:16:55 Unresolved reference 'StringResource'.
-For more on this, please refer to https://docs.gradle.org/9.4.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:18:2 Unresolved reference 'ExperimentalResourceApi'.
-20 actionable tasks: 11 executed, 9 up-to-date
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:19:60 Unresolved reference 'StringArrayResource'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:21:2 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:22:61 Unresolved reference 'PluralStringResource'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:24:2 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonMainResourceCollectors/com/micyou/ios/resources/ExpectResourceCollectors.kt:25:53 Unresolved reference 'FontResource'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:2:3 Annotation argument must be a compile-time constant.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:2:17 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:3:3 Annotation argument must be a compile-time constant.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:3:17 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:11:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:12:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:13:22 Unresolved reference 'compose'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:24:4 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:26:7 Unresolved reference 'readResourceBytes'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:36:4 Unresolved reference 'ExperimentalResourceApi'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/build/generated/compose/resourceGenerator/kotlin/commonResClass/com/micyou/ios/resources/Res.kt:38:7 Unresolved reference 'getResourceUri'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:230:31 Unresolved reference 'usePinned'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:230:43 Cannot infer type for value parameter 'pinned'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:231:13 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:231:40 Unresolved reference 'addressOf'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:231:66 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:268:24 Unresolved reference 'usePinned'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:268:36 Cannot infer type for value parameter 'pinned'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:269:21 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:269:46 Unresolved reference 'addressOf'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:269:72 Unresolved reference 'convert'.
 FAILURE: Build failed with an exception.
+* What went wrong:
+Execution failed for task ':iosApp:compileIosMainKotlinMetadata'.
+> Compilation finished with errors
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+BUILD FAILED in 17s
+Error: Process completed with exit code 1.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:3:8 Unresolved reference 'UIKit'.
+> Task :iosApp:compileIosMainKotlinMetadata FAILED
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:4:8 Unresolved reference 'UIKit'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:5:8 Unresolved reference 'UIKit'.
+[Incubating] Problems report is available at: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/build/reports/problems/problems-report.html
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:14 'public final actual class AppDelegate : <ERROR TYPE REF: Symbol not found for UIResponder>, <ERROR TYPE REF: Symbol not found for UIApplicationDelegateProtocol>' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:26 'public actual constructor(): AppDelegate' has no corresponding expected declaration
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:49 Unresolved reference 'UIResponder'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:64 Unresolved reference 'UIApplicationDelegateProtocol'.
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:12:5 'application' overrides nothing.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:13:22 Unresolved reference 'UIApplication'.
+For more on this, please refer to https://docs.gradle.org/9.4.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:14:52 No type arguments expected for expect class NSDictionary : NSObject, NSCopyingProtocol, NSMutableCopyingProtocol, NSSecureCodingProtocol, NSFastEnumerationProtocol.
+19 actionable tasks: 10 executed, 9 up-to-date
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:9:12 'public final actual fun MainViewController(): UIViewController' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:10:5 Unresolved reference 'MicYouApp'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:12:14 'public final actual class MicYouAudioBridge : Any' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:12:32 'public actual constructor(): MicYouAudioBridge' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:15:16 'public final actual fun prepareAudio(): String' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:19:16 'public final actual fun startCapture(): String' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:23:16 'public final actual fun stopCapture(): String' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:27:16 'public final actual fun setFrameCallback(callback: (ByteArray, Int, Int) -> Unit): Unit' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:29:34 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+fun NSData.toByteArray(): ByteArray
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:38:22 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:39:21 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:39:28 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:39:35 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:39:66 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:50:26 Unresolved reference 'MicYouAudioBridgeOC'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:65:35 Cannot infer type for value parameter 'nsData'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:65:43 Cannot infer type for value parameter 'sampleRate'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:65:55 Cannot infer type for value parameter 'channels'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:66:44 Unresolved reference 'length'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:68:25 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:69:21 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:69:28 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:69:35 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:69:56 Unresolved reference 'bytes'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:69:70 Unresolved reference 'length'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:14:30 Unresolved reference 'NSURL'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:34:21 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:40:21 Unresolved reference 'setPreferredSampleRate'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:41:21 Unresolved reference 'setActive'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:55:97 Argument type mismatch: actual type is 'ULong', but 'UInt' was expected.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:63:40 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'AVAudioPCMBuffer?'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:69:20 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/NativeAudioSession.kt:83:49 Unresolved reference 'setActive'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/PlatformBridge.ios.kt:6:14 'public final actual class PlatformBridge : Any' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/PlatformBridge.ios.kt:9:16 'public final actual fun startConnection(host: String, port: Int): Unit' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/PlatformBridge.ios.kt:10:16 Unresolved reference 'start'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/PlatformBridge.ios.kt:13:16 'public final actual fun stopConnection(): Unit' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/PlatformBridge.ios.kt:14:16 Unresolved reference 'stop'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:13:14 'public final actual class TransportClient : Any' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:13:30 'public actual constructor(): TransportClient' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:24:16 'public final actual val connectionState: StateFlow<TransportClient.ConnectionState>' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:27:16 'public final actual val stats: StateFlow<NetworkStats>' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:35:22 'public final actual companion object Companion : Any' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:36:20 'public final actual val DEFAULT_CONTROL_PORT: Int' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:37:20 'public final actual val DEFAULT_AUDIO_PORT: Int' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:40:23 'public final actual enum class ConnectionState : Enum<TransportClient.ConnectionState>' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:50:16 'public final actual fun connect(host: String, deviceId: String, deviceName: String, sampleRate: Int, channels: Int): Boolean' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:108:16 'public final actual fun sendAudio(pcmData: ByteArray, sampleRate: Int, channels: Int): Unit' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:132:16 'public final actual fun disconnect(): Unit' has no corresponding expected declaration
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:164:9 Unresolved reference 'memScoped'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:165:30 Unresolved reference 'alloc'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:166:45 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:167:35 Unresolved reference 'htons'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:167:46 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:13 Unresolved reference 'inet_pton'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:38 Syntax error: Expecting an expression.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:38 Syntax error: Expecting ')'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:49 Syntax error: Expecting an element.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:58 Syntax error: Expecting an element.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:168:58 Syntax error: Unexpected tokens (use ';' to separate expressions on the same line).
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:170:26 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:173:17 Unresolved reference 'sizeOf'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:179:17 'return' is prohibited here.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:191:9 Unresolved reference 'memScoped'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:192:30 Unresolved reference 'alloc'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:193:45 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:194:35 Unresolved reference 'htons'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:194:46 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:13 Unresolved reference 'inet_pton'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:38 Syntax error: Expecting an expression.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:38 Syntax error: Expecting ')'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:49 Syntax error: Expecting an element.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:58 Syntax error: Expecting an element.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:195:58 Syntax error: Unexpected tokens (use ';' to separate expressions on the same line).
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:197:26 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:200:17 Unresolved reference 'sizeOf'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:206:17 'return' is prohibited here.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:217:25 Unresolved reference 'usePinned'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:217:37 Cannot infer type for value parameter 'pinned'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:218:13 This declaration needs opt-in. Its usage must be marked with '@kotlinx.cinterop.ExperimentalForeignApi' or '@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)'
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:218:40 Unresolved reference 'addressOf'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:218:64 Unresolved reference 'convert'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:221:34 Unresolved reference 'convert'.

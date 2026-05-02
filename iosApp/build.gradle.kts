@@ -21,12 +21,10 @@ kotlin {
             }
         }
 
-        // Create iosMain as a intermediate source set for all iOS targets
         val iosMain by creating {
             dependsOn(commonMain)
         }
 
-        // Link each iOS target to iosMain
         iosArm64Main.get().dependsOn(iosMain)
         iosSimulatorArm64Main.get().dependsOn(iosMain)
         iosX64Main.get().dependsOn(iosMain)
