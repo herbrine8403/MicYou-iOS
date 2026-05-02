@@ -76,12 +76,36 @@ object MicYouProtocol {
         )
     }
 
+    /**
+     * Write Int as big-endian bytes.
+     */
+    private fun Int.toBigEndianBytes(): ByteArray = byteArrayOf(
+        (this shr 24).toByte(),
+        (this shr 16).toByte(),
+        (this shr 8).toByte(),
+        this.toByte()
+    )
+
+    /**
+     * Read big-endian Int from byte array at offset.
+     */
+    private fun ByteArray.readBigEndianInt(offset: Int): Int {
+        return ((this[offset].toInt() and 0xFF) shl 24) or
+                ((this[offset + 1].toInt() and 0xFF) shl 16) or
+                ((this[offset + 2].toInt() and 0xFF) shl 8) or
+                (this[offset + 3].toInt() and 0xFF)
+    }
+
     private fun wrapWithHeader(payload: ByteArray): ByteArray {
         val result = ByteArray(8 + payload.size)
-        val buffer = java.nio.ByteBuffer.wrap(result).order(java.nio.ByteOrder.BIG_ENDIAN)
-        buffer.putInt(IOS_MAGIC)
-        buffer.putInt(payload.size)
-        buffer.put(payload)
+        // Write magic (big-endian)
+        val magicBytes = IOS_MAGIC.toBigEndianBytes()
+        magicBytes.copyInto(result, 0)
+        // Write length (big-endian)
+        val lengthBytes = payload.size.toBigEndianBytes()
+        lengthBytes.copyInto(result, 4)
+        // Write payload
+        payload.copyInto(result, 8)
         return result
     }
 
@@ -89,13 +113,11 @@ object MicYouProtocol {
         if (data.size < 8) {
             throw IllegalArgumentException("Data too small for header: ${data.size} bytes")
         }
-        val magic = java.nio.ByteBuffer.wrap(data, 0, 4)
-            .order(java.nio.ByteOrder.BIG_ENDIAN).int
+        val magic = data.readBigEndianInt(0)
         if (magic != IOS_MAGIC) {
             throw IllegalArgumentException("Magic mismatch: expected 0x${IOS_MAGIC.toString(16)}, got 0x${magic.toString(16)}")
         }
-        val length = java.nio.ByteBuffer.wrap(data, 4, 4)
-            .order(java.nio.ByteOrder.BIG_ENDIAN).int
+        val length = data.readBigEndianInt(4)
         if (length < 0 || length > data.size - 8) {
             throw IllegalArgumentException("Invalid payload length: $length")
         }
