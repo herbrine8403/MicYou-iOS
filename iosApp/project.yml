@@ -1,4 +1,6 @@
 name: iosApp
+fileFormat: Xcode_15_4
+
 options:
   bundleIdPrefix: com.micyou
   deploymentTarget:
