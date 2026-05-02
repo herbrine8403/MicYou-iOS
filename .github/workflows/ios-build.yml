@@ -20,6 +20,12 @@ on:
       - '**/*.m'
       - '**/*.h'
 
+env:
+  # Skip code signing for CI builds
+  CODE_SIGN_IDENTITY: ""
+  CODE_SIGNING_REQUIRED: "NO"
+  CODE_SIGNING_ALLOWED: "NO"
+
 jobs:
   build:
     runs-on: macos-14
@@ -56,24 +62,61 @@ jobs:
       - name: Build iOS App (Gradle)
         run: ./gradlew :iosApp:build
 
-      - name: Find iOS Framework
-        id: find-framework
-        run: |
-          FRAMEWORK_PATH=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -5)
-          echo "framework_path=$FRAMEWORK_PATH" >> $GITHUB_OUTPUT
-          echo "Found frameworks:"
-          echo "$FRAMEWORK_PATH"
-
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ios-build-artifacts
+          name: ios-gradle-artifacts
           path: |
             iosApp/build/**/*.framework
             iosApp/build/**/*.klib
             shared/build/**/*.klib
             build/reports/
             build/logs/
+          retention-days: 7
+
+  xcode-build:
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
+
+      - name: Build for Simulator (Unsigned)
+        env:
+          CODE_SIGN_IDENTITY: "-"
+          CODE_SIGNING_REQUIRED: "NO"
+          CODE_SIGNING_ALLOWED: "NO"
+        run: |
+          cd iosApp
+          xcodebuild -workspace iosApp.xcworkspace \
+            -scheme iosApp \
+            -configuration Debug \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Find .app Bundle
+        id: find-app
+        run: |
+          APP_PATH=$(find iosApp/build/DerivedData -name "*.app" -type d 2>/dev/null | head -1)
+          echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
+          echo "Found app bundle:"
+          echo "$APP_PATH"
+
+      - name: Upload .app Bundle
+        if: steps.find-app.outputs.app_path != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-app-bundle
+          path: |
+            iosApp/build/DerivedData/**/*.app
+            iosApp/build/DerivedData/**/*.dSYM
           retention-days: 7
 
   lint:
@@ -94,18 +137,3 @@ jobs:
 
       - name: Kotlin Lint
         run: ./gradlew detekt || true
-
-  # Optional: Build with Xcode (requires valid signing for device builds)
-  xcode-build:
-    runs-on: macos-14
-    if: false  # Enable this when you have proper signing setup
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
-
-      - name: Build for Simulator
-        run: make build
