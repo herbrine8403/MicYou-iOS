@@ -1,8 +1,8 @@
 package com.micyou.ios
 
-import UIKit.UIApplication
-import UIKit.UIApplicationDelegateProtocol
-import UIKit.UIResponder
+import platform.UIKit.UIApplication
+import platform.UIKit.UIApplicationDelegateProtocol
+import platform.UIKit.UIResponder
 import platform.Foundation.NSDictionary
 
 /**
@@ -11,7 +11,7 @@ import platform.Foundation.NSDictionary
 actual class AppDelegate actual constructor() : UIResponder(), UIApplicationDelegateProtocol {
     override fun application(
         application: UIApplication,
-        didFinishLaunchingWithOptions: NSDictionary<*, *>?
+        didFinishLaunchingWithOptions: NSDictionary?
     ): Boolean {
         return true
     }

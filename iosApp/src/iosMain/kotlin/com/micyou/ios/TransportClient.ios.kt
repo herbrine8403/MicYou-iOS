@@ -4,6 +4,7 @@ package com.micyou.ios
 
 import kotlinx.cinterop.*
 import platform.Foundation.NSDate
+import platform.Foundation.timeIntervalSince1970
 import platform.posix.*
 
 // Platform-specific implementations for TransportClient
@@ -98,7 +99,7 @@ internal actual fun TransportClient.platformCloseSocket(socket: Int) {
 }
 
 internal actual fun TransportClient.platformGetTimestampMs(): Long {
-    return (NSDate().timeIntervalSince1970 * 1000).toLong()
+    return (NSDate().timeIntervalSince1970() * 1000).toLong()
 }
 
 /**

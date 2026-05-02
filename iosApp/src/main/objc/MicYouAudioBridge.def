@@ -1,0 +1,6 @@
+language = Objective-C
+headers = MicYouAudioBridge.h
+headerFilter = MicYouAudioBridge.h
+
+compilerOpts = -framework AVFoundation
+linkerOpts = -framework AVFoundation

@@ -5,6 +5,7 @@ package com.micyou.ios
 import kotlinx.cinterop.*
 import platform.Foundation.NSData
 import platform.posix.memcpy
+import objc.MicYouAudioBridgeOC
 
 /**
  * iOS-specific implementation of MicYouAudioBridge.
@@ -34,11 +35,11 @@ actual class MicYouAudioBridge actual constructor() {
     }
 
     private fun NSData.toByteArray(): ByteArray {
-        val length = this.length.toInt()
-        return ByteArray(length).apply {
-            if (length > 0) {
+        val dataLength = this.length.toInt()
+        return ByteArray(dataLength).apply {
+            if (dataLength > 0) {
                 this.usePinned { pinned ->
-                    memcpy(pinned.addressOf(0), this@toByteArray.bytes, length.toULong())
+                    memcpy(pinned.addressOf(0), this@toByteArray.bytes, dataLength.toULong())
                 }
             }
         }
@@ -64,11 +65,11 @@ private class MicYouAudioBridgeHelper {
     }
 
     fun setFrameCallback(callback: (pcmData: ByteArray, sampleRate: Int, channels: Int) -> Unit) {
-        bridge.setFrameCallback { nsData, sampleRate, channels ->
+        bridge.setFrameCallback { nsData: NSData, sampleRate: Int, channels: Int ->
             val pcmData = ByteArray(nsData.length.toInt())
             if (pcmData.isNotEmpty()) {
                 pcmData.usePinned { pinned ->
-                    memcpy(pinned.addressOf(0), nsData.bytes, nsData.length)
+                    memcpy(pinned.addressOf(0), nsData.bytes, nsData.length.toULong())
                 }
             }
             callback(pcmData, sampleRate, channels)
