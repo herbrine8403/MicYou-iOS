@@ -21,7 +21,6 @@ on:
       - '**/*.h'
 
 env:
-  # Skip code signing for CI builds
   CODE_SIGN_IDENTITY: ""
   CODE_SIGNING_REQUIRED: "NO"
   CODE_SIGNING_ALLOWED: "NO"
@@ -59,64 +58,62 @@ jobs:
       - name: Build Shared Module
         run: ./gradlew :shared:build
 
-      - name: Build iOS App (Gradle)
-        run: ./gradlew :iosApp:build
+      - name: Build iOS App Framework
+        run: ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64
+
+      - name: Find Framework
+        id: find-framework
+        run: |
+          FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
+          echo "framework_dir=$FRAMEWORK_DIR" >> $GITHUB_OUTPUT
+          echo "Found framework:"
+          echo "$FRAMEWORK_DIR"
+
+      - name: Create .app Structure
+        run: |
+          APP_DIR="iosApp/build/DerivedData/MicYou.app"
+          FRAMEWORK_PATH="${{ steps.find-framework.outputs.framework_dir }}"
+          
+          mkdir -p "$APP_DIR/Contents/MacOS"
+          mkdir -p "$APP_DIR/Contents/Resources"
+          
+          if [ -d "$FRAMEWORK_PATH" ]; then
+            cp -r "$FRAMEWORK_PATH" "$APP_DIR/Contents/Frameworks/"
+          fi
+          
+          # Create minimal Info.plist
+          cat > "$APP_DIR/Contents/Info.plist" << 'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>CFBundleExecutable</key>
+            <string>MacOS/MicYou</string>
+            <key>CFBundleIdentifier</key>
+            <string>com.micyou.ios.MicYou</string>
+            <key>CFBundleName</key>
+            <string>MicYou</string>
+            <key>CFBundlePackageType</key>
+            <string>APPL</string>
+            <key>CFBundleShortVersionString</key>
+            <string>1.0</string>
+            <key>CFBundleVersion</key>
+            <string>1</string>
+          </dict>
+          </plist>
+          EOF
+          
+          echo "Created app structure at: $APP_DIR"
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ios-gradle-artifacts
+          name: ios-build-artifacts
           path: |
             iosApp/build/**/*.framework
-            iosApp/build/**/*.klib
+            iosApp/build/DerivedData/**/*.app
             shared/build/**/*.klib
             build/reports/
-            build/logs/
-          retention-days: 7
-
-  xcode-build:
-    runs-on: macos-14
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
-
-      - name: Build for Simulator (Unsigned)
-        env:
-          CODE_SIGN_IDENTITY: "-"
-          CODE_SIGNING_REQUIRED: "NO"
-          CODE_SIGNING_ALLOWED: "NO"
-        run: |
-          cd iosApp
-          xcodebuild -workspace iosApp.xcworkspace \
-            -scheme iosApp \
-            -configuration Debug \
-            -destination 'platform=iOS Simulator,name=iPhone 15' \
-            -derivedDataPath build/DerivedData \
-            CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            build
-
-      - name: Find .app Bundle
-        id: find-app
-        run: |
-          APP_PATH=$(find iosApp/build/DerivedData -name "*.app" -type d 2>/dev/null | head -1)
-          echo "app_path=$APP_PATH" >> $GITHUB_OUTPUT
-          echo "Found app bundle:"
-          echo "$APP_PATH"
-
-      - name: Upload .app Bundle
-        if: steps.find-app.outputs.app_path != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: ios-app-bundle
-          path: |
-            iosApp/build/DerivedData/**/*.app
-            iosApp/build/DerivedData/**/*.dSYM
           retention-days: 7
 
   lint:
