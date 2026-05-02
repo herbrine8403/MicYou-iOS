@@ -5,8 +5,7 @@ package com.micyou.ios
 import kotlinx.cinterop.*
 import platform.AVFAudio.*
 import platform.CoreAudioTypes.*
-import platform.Foundation.NSData
-import platform.Foundation.dataWithBytesNoCopy
+import platform.Foundation.NSError
 import platform.posix.memcpy
 
 /**
