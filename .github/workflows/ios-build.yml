@@ -62,23 +62,18 @@ jobs:
         run: ./gradlew :shared:build
 
       - name: Build iOS Framework
-        run: |
-          echo "=== Trying to find framework link tasks ==="
-          ./gradlew :iosApp:tasks --group=build 2>/dev/null | tee /tmp/tasks.txt
-          echo ""
-          echo "=== Looking for link tasks ==="
-          grep -i "link\|framework" /tmp/tasks.txt || echo "No link/framework tasks found"
-          echo ""
-          echo "=== Running all build tasks ==="
-          ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64 --info 2>&1 | tail -50
+        run: ./gradlew :iosApp:iosSimulatorArm64MainBinaries
 
       - name: Find and Copy Framework
         id: find-framework
         run: |
-          echo "=== Listing iosApp/build directory ==="
-          ls -laR iosApp/build/ 2>/dev/null | head -100 || echo "No build directory"
+          echo "=== Listing iosApp/build/bin directory ==="
+          ls -laR iosApp/build/bin/ 2>/dev/null | head -50 || echo "No bin directory"
           echo ""
           echo "=== Finding all .framework directories ==="
+          find iosApp/build -name "*.framework" -type d 2>/dev/null || echo "No framework found"
+          find iosApp/build -name "*.klib" -type f 2>/dev/null | head -5 || echo "No klib found"
+          echo ""
           FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
           if [ -n "$FRAMEWORK_DIR" ] && [ -d "$FRAMEWORK_DIR" ]; then
             FRAMEWORK_NAME=$(basename "$FRAMEWORK_DIR")
@@ -87,7 +82,9 @@ jobs:
             echo "framework_path=iosApp/build/libs/$FRAMEWORK_NAME" >> $GITHUB_OUTPUT
             echo "Found and copied framework: $FRAMEWORK_NAME"
           else
-            echo "No framework found in iosApp/build"
+            echo "No framework found, checking for alternative outputs..."
+            KLIB_DIR=$(find iosApp/build/bin -type d 2>/dev/null | head -10)
+            echo "Alternative outputs: $KLIB_DIR"
           fi
 
       - name: Update project.yml with Framework Path
