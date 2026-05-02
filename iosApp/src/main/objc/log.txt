@@ -1,59 +1,58 @@
+> Task :iosApp:transformIosMainDependenciesMetadata
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:12:5 'application' overrides nothing. Potential signatures for overriding:
+expect fun application(app: UIApplication, openURL: NSURL, options: Map<Any?, *>): Boolean
 > Task :iosApp:compileIosMainKotlinMetadata FAILED
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:3:8 Unresolved reference 'UIKit'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:4:8 Unresolved reference 'UIKit'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:5:8 Unresolved reference 'UIKit'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:14 'public final actual class AppDelegate : <ERROR TYPE REF: Symbol not found for UIResponder>, <ERROR TYPE REF: Symbol not found for UIApplicationDelegateProtocol>' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:26 'public actual constructor(): AppDelegate' has no corresponding expected declaration
-[Incubating] Problems report is available at: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/build/reports/problems/problems-report.html
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:49 Unresolved reference 'UIResponder'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:11:64 Unresolved reference 'UIApplicationDelegateProtocol'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:12:5 'application' overrides nothing.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:13:22 Unresolved reference 'UIApplication'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/AppDelegate.ios.kt:14:52 No type arguments expected for expect class NSDictionary : NSObject, NSCopyingProtocol, NSMutableCopyingProtocol, NSSecureCodingProtocol, NSFastEnumerationProtocol.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:9:12 'public final actual fun MainViewController(): UIViewController' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:10:5 Unresolved reference 'MicYouApp'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:14:14 'public final actual class MicYouAudioBridge : Any' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:14:32 'public actual constructor(): MicYouAudioBridge' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:17:16 'public final actual fun prepareAudio(): String' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:21:16 'public final actual fun startCapture(): String' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:25:16 'public final actual fun stopCapture(): String' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:29:16 'public final actual fun setFrameCallback(callback: (ByteArray, Int, Int) -> Unit): Unit' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:31:34 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
+expect fun application(application: UIApplication, willContinueUserActivityWithType: String): Boolean
+expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forLocalNotification: UILocalNotification, withResponseInfo: Map<Any?, *>, completionHandler: () -> Unit): Unit
+expect fun application(application: UIApplication, openURL: NSURL, sourceApplication: String?, annotation: Any): Boolean
+expect fun application(application: UIApplication, performActionForShortcutItem: UIApplicationShortcutItem, completionHandler: (Boolean) -> Unit): Unit
+expect fun application(application: UIApplication, supportedInterfaceOrientationsForWindow: UIWindow?): ULong
+expect fun application(application: UIApplication, userDidAcceptCloudKitShareWithMetadata: CKShareMetadata): Unit
+expect fun application(application: UIApplication, didReceiveLocalNotification: UILocalNotification): Unit
+expect fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean
+expect fun application(application: UIApplication, didReceiveRemoteNotification: Map<Any?, *>): Unit
+expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forLocalNotification: UILocalNotification, completionHandler: () -> Unit): Unit
+expect fun application(application: UIApplication, didDecodeRestorableStateWithCoder: NSCoder): Unit
+expect fun application(application: UIApplication, shouldRestoreSecureApplicationState: NSCoder): Boolean
+expect fun application(application: UIApplication, shouldSaveApplicationState: NSCoder): Boolean
+expect fun application(application: UIApplication, didRegisterUserNotificationSettings: UIUserNotificationSettings): Unit
+expect fun application(application: UIApplication, didFailToContinueUserActivityWithType: String, error: NSError): Unit
+expect fun application(application: UIApplication, handleOpenURL: NSURL): Boolean
+expect fun application(application: UIApplication, handleEventsForBackgroundURLSession: String, completionHandler: () -> Unit): Unit
+expect fun application(application: UIApplication, didChangeStatusBarFrame: CValue<CGRect>): Unit
+expect fun application(application: UIApplication, willFinishLaunchingWithOptions: Map<Any?, *>?): Boolean
+expect fun application(application: UIApplication, willEncodeRestorableStateWithCoder: NSCoder): Unit
+expect fun application(application: UIApplication, handlerForIntent: INIntent): Any?
+expect fun application(application: UIApplication, willChangeStatusBarFrame: CValue<CGRect>): Unit
+expect fun application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken: NSData): Unit
+expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forRemoteNotification: Map<Any?, *>, completionHandler: () -> Unit): Unit
+expect fun application(application: UIApplication, viewControllerWithRestorationIdentifierPath: List<*>, coder: NSCoder): UIViewController?
+expect fun application(application: UIApplication, continueUserActivity: NSUserActivity, restorationHandler: (List<*>?) -> Unit): Boolean
+expect fun application(application: UIApplication, performFetchWithCompletionHandler: (UIBackgroundFetchResult) -> Unit): Unit
+expect fun application(application: UIApplication, handleWatchKitExtensionRequest: Map<Any?, *>?, reply: (Map<Any?, *>?) -> Unit): Unit
+expect fun application(application: UIApplication, shouldAllowExtensionPointIdentifier: String?): Boolean
+expect fun application(application: UIApplication, shouldSaveSecureApplicationState: NSCoder): Boolean
+expect fun application(application: UIApplication, willChangeStatusBarOrientation: Long, duration: Double): Unit
+expect fun application(application: UIApplication, didReceiveRemoteNotification: Map<Any?, *>, fetchCompletionHandler: (UIBackgroundFetchResult) -> Unit): Unit
+expect fun application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError: NSError): Unit
+expect fun application(application: UIApplication, didDiscardSceneSessions: Set<*>): Unit
+expect fun application(application: UIApplication, didUpdateUserActivity: NSUserActivity): Unit
+expect fun application(application: UIApplication, handleIntent: INIntent, completionHandler: (INIntentResponse?) -> Unit): Unit
+expect fun application(application: UIApplication, handleActionWithIdentifier: String?, forRemoteNotification: Map<Any?, *>, withResponseInfo: Map<Any?, *>, completionHandler: () -> Unit): Unit
+expect fun application(application: UIApplication, configurationForConnectingSceneSession: UISceneSession, options: UISceneConnectionOptions): UISceneConfiguration
+expect fun application(application: UIApplication, didChangeStatusBarOrientation: Long): Unit
+expect fun application(application: UIApplication, shouldRestoreApplicationState: NSCoder): Boolean
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MainViewController.ios.kt:9:12 The 'expect' and the 'actual' declarations are incompatible.
+  expect: public final expect fun MainViewController(): Any
+  actual: public final actual fun MainViewController(): UIViewController
+  reason: the return types are different
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:8:8 Unresolved reference 'objc'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:32:34 Unresolved reference. None of the following candidates is applicable because of a receiver type mismatch:
 fun NSData.toByteArray(): ByteArray
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:52:26 Unresolved reference 'MicYouAudioBridgeOC'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:67:35 Cannot infer type for value parameter 'nsData'. Specify it explicitly.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:67:43 Cannot infer type for value parameter 'sampleRate'. Specify it explicitly.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:67:55 Cannot infer type for value parameter 'channels'. Specify it explicitly.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:68:44 Unresolved reference 'length'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:71:56 Unresolved reference 'bytes'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:71:70 Unresolved reference 'length'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:11:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:11:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformConnectControl(host: String, port: Int): Boolean' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:18:25 Unresolved reference 'htons'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:19:9 Unresolved reference 'inet_pton'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:32:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:32:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformConnectAudio(host: String, port: Int): Boolean' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:39:25 Unresolved reference 'htons'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:40:9 Unresolved reference 'inet_pton'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:53:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:53:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformSendControlData(data: ByteArray): Boolean' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:63:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:63:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformWaitForAck(): <ERROR TYPE REF: Symbol not found for TransportClient>' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:63:59 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:65:24 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:72:31 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:77:57 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:78:59 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:79:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:82:9 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:86:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:86:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformStartKeepAlive(deviceId: String): Unit' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:90:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:90:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformStartAudioSender(): Unit' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:94:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:94:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformCloseSocket(socket: Int): Unit' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:100:21 Unresolved reference 'TransportClient'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:100:37 'internal final actual fun <ERROR TYPE REF: Symbol not found for TransportClient>.platformGetTimestampMs(): Long' has no corresponding expected declaration
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:101:22 Unresolved reference 'timeIntervalSince1970'.
-e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:101:52 Cannot infer type for type parameter 'T'. Specify it explicitly.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/MicYouAudioBridge.kt:53:26 Unresolved reference 'MicYouAudioBridgeOC'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:19:25 Unresolved reference 'htons'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:20:9 Unresolved reference 'inet_pton'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:40:25 Unresolved reference 'htons'.
+e: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/iosApp/src/iosMain/kotlin/com/micyou/ios/TransportClient.ios.kt:41:9 Unresolved reference 'inet_pton'.
+[Incubating] Problems report is available at: file:///Users/runner/work/MicYou-iOS/MicYou-iOS/build/reports/problems/problems-report.html
 FAILURE: Build failed with an exception.

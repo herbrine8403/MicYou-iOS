@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
@@ -7,15 +5,9 @@ plugins {
 }
 
 kotlin {
-    iosArm64 {
-        configureCInterop()
-    }
-    iosSimulatorArm64 {
-        configureCInterop()
-    }
-    iosX64 {
-        configureCInterop()
-    }
+    iosArm64()
+    iosSimulatorArm64()
+    iosX64()
 
     sourceSets {
         val commonMain by getting {
@@ -36,17 +28,6 @@ kotlin {
         iosArm64Main.get().dependsOn(iosMain)
         iosSimulatorArm64Main.get().dependsOn(iosMain)
         iosX64Main.get().dependsOn(iosMain)
-    }
-}
-
-fun KotlinNativeTarget.configureCInterop() {
-    compilations.getByName("main") {
-        cinterops {
-            val objc by creating {
-                definitionFile.set(project.file("src/main/objc/MicYouAudioBridge.def"))
-                includeDirs.headerFilterOnly(project.file("src/main/objc"))
-            }
-        }
     }
 }
 

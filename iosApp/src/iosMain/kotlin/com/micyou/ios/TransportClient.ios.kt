@@ -16,8 +16,8 @@ internal actual fun TransportClient.platformConnectControl(host: String, port: I
     memScoped {
         val addr = alloc<sockaddr_in>()
         addr.sin_family = AF_INET.convert()
-        addr.sin_port = htons(port.toUShort())
-        inet_pton(AF_INET, host, addr.sin_addr.ptr)
+        addr.sin_port = port.toUShort().swapBytes()
+        addr.sin_addr.s_addr = inetAddr(host)
 
         val result = connect(fd, addr.ptr.reinterpret(), sizeOf<sockaddr_in>().convert())
         if (result < 0) {
@@ -37,8 +37,8 @@ internal actual fun TransportClient.platformConnectAudio(host: String, port: Int
     memScoped {
         val addr = alloc<sockaddr_in>()
         addr.sin_family = AF_INET.convert()
-        addr.sin_port = htons(port.toUShort())
-        inet_pton(AF_INET, host, addr.sin_addr.ptr)
+        addr.sin_port = port.toUShort().swapBytes()
+        addr.sin_addr.s_addr = inetAddr(host)
 
         val result = connect(fd, addr.ptr.reinterpret(), sizeOf<sockaddr_in>().convert())
         if (result < 0) {
@@ -49,6 +49,20 @@ internal actual fun TransportClient.platformConnectAudio(host: String, port: Int
 
     TransportClientNativeStore.audioSocket = fd
     return true
+}
+
+private fun UShort.swapBytes(): UShort {
+    return (((this.toInt() and 0xFF) shl 8) or ((this.toInt() shr 8) and 0xFF)).toUShort()
+}
+
+private fun inetAddr(host: String): UInt {
+    val parts = host.split(".")
+    if (parts.size != 4) return 0u
+    var result = 0u
+    for (i in 0..3) {
+        result = result or ((parts[i].toIntOrNull() ?: 0).toUInt() shl (8 * (3 - i)))
+    }
+    return result
 }
 
 internal actual fun TransportClient.platformSendControlData(data: ByteArray): Boolean {
