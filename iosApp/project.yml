@@ -1,5 +1,4 @@
 name: iosApp
-fileFormat: Xcode_15_4
 
 options:
   bundleIdPrefix: com.micyou
@@ -9,6 +8,7 @@ options:
   minimumXcodeGenVersion: "2.35.0"
   generateEmptyDirectories: true
   createIntermediateGroups: true
+  postGenCommand: sed -i '' -E 's|objectVersion = [0-9]+|objectVersion = 60|' iosApp.xcodeproj/project.pbxproj
 
 settings:
   base:
