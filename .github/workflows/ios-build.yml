@@ -79,6 +79,9 @@ jobs:
         run: |
           which xcodegen || brew install xcodegen
 
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
       - name: Generate Xcode Project
         run: |
           cd iosApp

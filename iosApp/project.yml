@@ -4,7 +4,9 @@ options:
   deploymentTarget:
     iOS: "14.0"
   xcodeVersion: "15.2"
+  minimumXcodeGenVersion: "2.35.0"
   generateEmptyDirectories: true
+  createIntermediateGroups: true
 
 settings:
   base:
@@ -16,6 +18,7 @@ settings:
     CODE_SIGN_IDENTITY: "-"
     CODE_SIGNING_REQUIRED: "NO"
     CODE_SIGNING_ALLOWED: "NO"
+    IPHONEOS_DEPLOYMENT_TARGET: "14.0"
 
 targets:
   iosApp:
@@ -33,9 +36,6 @@ targets:
       base:
         INFOPLIST_FILE: Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.micyou.ios.MicYou
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: "YES"
-    dependencies:
-      - framework: build/libs/iosApp.framework
-        embed: true
+    dependencies: []
