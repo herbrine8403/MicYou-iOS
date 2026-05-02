@@ -233,8 +233,16 @@ private fun ConnectionStateCard(
 
 private fun formatBytes(bytes: Long): String {
     return when {
-        bytes >= 1024 * 1024 -> "%.2f MB".format(bytes / (1024.0 * 1024.0))
-        bytes >= 1024 -> "%.2f KB".format(bytes / 1024.0)
+        bytes >= 1024 * 1024 -> {
+            val mb = bytes / (1024.0 * 1024.0)
+            val rounded = (mb * 100).toInt() / 100.0
+            "$rounded MB"
+        }
+        bytes >= 1024 -> {
+            val kb = bytes / 1024.0
+            val rounded = (kb * 100).toInt() / 100.0
+            "$rounded KB"
+        }
         else -> "$bytes B"
     }
 }
