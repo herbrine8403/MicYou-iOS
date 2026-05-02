@@ -16,6 +16,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.ui)
+                implementation(compose.components.resources)
                 implementation(project(":shared"))
             }
         }
@@ -33,7 +34,6 @@ kotlin {
 }
 
 compose.resources {
-    publicResClass = true
-    packageOfResClass = "com.micyou.ios.resources"
-    generateResClass = always
+    publicResClass = false
+    generateResClass = never
 }
