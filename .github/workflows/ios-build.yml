@@ -4,19 +4,25 @@ on:
   push:
     branches: [ main, master, develop ]
     paths:
-      - 'MicYou-iOS/**'
       - '.github/workflows/ios-build.yml'
+      - '**/*.gradle.kts'
+      - '**/*.kt'
+      - '**/*.swift'
+      - '**/*.m'
+      - '**/*.h'
   pull_request:
     branches: [ main, master ]
     paths:
-      - 'MicYou-iOS/**'
+      - '.github/workflows/ios-build.yml'
+      - '**/*.gradle.kts'
+      - '**/*.kt'
+      - '**/*.swift'
+      - '**/*.m'
+      - '**/*.h'
 
 jobs:
   build:
     runs-on: macos-14
-    defaults:
-      run:
-        working-directory: MicYou-iOS
 
     steps:
       - name: Checkout
@@ -64,9 +70,6 @@ jobs:
 
   lint:
     runs-on: macos-14
-    defaults:
-      run:
-        working-directory: MicYou-iOS
 
     steps:
       - name: Checkout
@@ -88,9 +91,6 @@ jobs:
   xcode-build:
     runs-on: macos-14
     if: false  # Enable this when you have proper signing setup
-    defaults:
-      run:
-        working-directory: MicYou-iOS
 
     steps:
       - name: Checkout
