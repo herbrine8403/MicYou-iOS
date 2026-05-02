@@ -62,7 +62,7 @@ jobs:
         run: ./gradlew :shared:build
 
       - name: Build iOS Framework
-        run: ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64
+        run: ./gradlew :iosApp:build
 
       - name: Copy Framework
         run: |
