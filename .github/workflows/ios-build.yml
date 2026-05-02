@@ -56,14 +56,25 @@ jobs:
       - name: Build iOS App (Gradle)
         run: ./gradlew :iosApp:build
 
+      - name: Find iOS Framework
+        id: find-framework
+        run: |
+          FRAMEWORK_PATH=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -5)
+          echo "framework_path=$FRAMEWORK_PATH" >> $GITHUB_OUTPUT
+          echo "Found frameworks:"
+          echo "$FRAMEWORK_PATH"
+
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
-        if: failure()
         with:
-          name: build-logs
+          name: ios-build-artifacts
           path: |
-            **/build/reports/
-            **/build/logs/
+            iosApp/build/**/*.framework
+            iosApp/build/**/*.klib
+            shared/build/**/*.klib
+            build/reports/
+            build/logs/
+          retention-days: 7
 
   lint:
     runs-on: macos-14
