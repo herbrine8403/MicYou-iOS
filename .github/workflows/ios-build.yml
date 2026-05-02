@@ -67,18 +67,28 @@ jobs:
       - name: Find and Copy Framework
         id: find-framework
         run: |
+          echo "=== Listing iosApp/build directory ==="
+          ls -laR iosApp/build/ 2>/dev/null | head -100 || echo "No build directory"
+          echo ""
+          echo "=== Finding all .framework directories ==="
           FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
-          FRAMEWORK_NAME=$(basename "$FRAMEWORK_DIR")
-          mkdir -p iosApp/build/libs
-          cp -r "$FRAMEWORK_DIR" iosApp/build/libs/
-          echo "framework_path=iosApp/build/libs/$FRAMEWORK_NAME" >> $GITHUB_OUTPUT
-          echo "Found and copied framework: $FRAMEWORK_NAME"
+          if [ -n "$FRAMEWORK_DIR" ] && [ -d "$FRAMEWORK_DIR" ]; then
+            FRAMEWORK_NAME=$(basename "$FRAMEWORK_DIR")
+            mkdir -p iosApp/build/libs
+            cp -r "$FRAMEWORK_DIR" iosApp/build/libs/
+            echo "framework_path=iosApp/build/libs/$FRAMEWORK_NAME" >> $GITHUB_OUTPUT
+            echo "Found and copied framework: $FRAMEWORK_NAME"
+          else
+            echo "No framework found in iosApp/build"
+          fi
 
       - name: Update project.yml with Framework Path
+        if: steps.find-framework.outputs.framework_path != ''
         run: |
           FRAMEWORK_PATH="${{ steps.find-framework.outputs.framework_path }}"
           FRAMEWORK_NAME=$(basename "$FRAMEWORK_PATH")
           sed -i '' "s|FRAMEWORK_PLACEHOLDER|$FRAMEWORK_PATH|g" iosApp/project.yml
+          echo "Updated project.yml with framework: $FRAMEWORK_PATH"
 
       - name: Install XcodeGen
         run: |
