@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.micyou.ios
 
 import kotlinx.cinterop.*

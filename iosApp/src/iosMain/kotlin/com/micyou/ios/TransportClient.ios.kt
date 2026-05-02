@@ -1,11 +1,10 @@
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.micyou.ios
 
 import kotlinx.cinterop.*
 import platform.Foundation.NSDate
 import platform.posix.*
-
-// C-interop opt-in
-@OptIn(ExperimentalForeignApi::class)
 
 // Platform-specific implementations for TransportClient
 
