@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <!-- Basic App Info -->
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
@@ -11,18 +12,102 @@
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>MicYouIOS</string>
+    <string>MicYou</string>
+    <key>CFBundleDisplayName</key>
+    <string>MicYou</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.1.0</string>
+    <string>0.5.0</string>
     <key>CFBundleVersion</key>
     <string>1</string>
+
+    <!-- Launch Screen -->
     <key>UILaunchScreen</key>
     <dict/>
+
+    <!-- Orientation -->
     <key>UISupportedInterfaceOrientations</key>
     <array>
         <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- ============================================ -->
+    <!-- REQUIRED PERMISSIONS FOR AUDIO STREAMING     -->
+    <!-- ============================================ -->
+
+    <!-- Microphone Permission -->
+    <!-- Required for AVAudioEngine input node to capture audio -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>MicYou needs access to your microphone to stream audio to your PC. Your audio is only sent to the connected PC and is not stored or shared.</string>
+
+    <!-- Local Network Permission (iOS 14+) -->
+    <!-- Required for TCP/UDP connections to the PC on the same network -->
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>MicYou needs to access your local network to discover and connect to your PC.</string>
+
+    <!-- Bonjour Service Discovery -->
+    <!-- Allows the app to discover MicYou PC instances via mDNS/Bonjour -->
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_micyou._tcp</string>
+    </array>
+
+    <!-- ============================================ -->
+    <!-- BACKGROUND MODES FOR AUDIO STREAMING         -->
+    <!-- ============================================ -->
+
+    <key>UIBackgroundModes</key>
+    <array>
+        <!-- audio: Allows app to continue recording audio in background -->
+        <string>audio</string>
+        <!-- voip: Allows app to maintain network connection in background -->
+        <string>voip</string>
+    </array>
+
+    <!-- ============================================ -->
+    <!-- SECURITY & TRANSPORT SETTINGS                -->
+    <!-- ============================================ -->
+
+    <!-- Allow cleartext HTTP connections (if needed for local discovery) -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+        <!-- Only allow local network cleartext -->
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>local</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+
+    <!-- ============================================ -->
+    <!-- USER EXPERIENCE                              -->
+    <!-- ============================================ -->
+
+    <!-- Prevent screen from sleeping while streaming -->
+    <key>UIRequiresPersistentWiFi</key>
+    <true/>
+
+    <!-- Status bar style -->
+    <key>UIStatusBarStyle</key>
+    <string>UIStatusBarStyleLightContent</string>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
 </dict>
 </plist>

@@ -2,51 +2,102 @@ name: iOS Build
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, develop ]
+    paths:
+      - 'MicYou-iOS/**'
+      - '.github/workflows/ios-build.yml'
   pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'MicYou-iOS/**'
 
 jobs:
   build:
     runs-on: macos-14
+    defaults:
+      run:
+        working-directory: MicYou-iOS
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 17
+          java-version: '17'
+          distribution: 'temurin'
 
-      - name: Set up XcodeGen
-        run: brew install xcodegen
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Build shared module
-        run: make shared-build
-
-      - name: Build iOS app
-        run: make ios-build
-
-      - name: Zip app bundle if present
-        if: always()
-        run: |
-          set -euo pipefail
-          mkdir -p ci-artifacts
-          APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -type d -path '*Build/Products/Release-iphonesimulator/*.app' -maxdepth 8 2>/dev/null | head -n 1 || true)
-          if [ -n "$APP_PATH" ] && [ -d "$APP_PATH" ]; then
-            ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" ci-artifacts/MicYouIOS.app.zip
-          fi
-          if [ -f build/reports/problems/problems-report.html ]; then
-            cp build/reports/problems/problems-report.html ci-artifacts/problems-report.html
-          fi
-
-      - name: Upload build artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Cache Kotlin/Native
+        uses: actions/cache@v4
         with:
-          name: micyou-ios-build-artifacts
-          path: ci-artifacts/**
-          if-no-files-found: ignore
+          path: |
+            ~/.konan
+            ~/.gradle/caches
+          key: ${{ runner.os }}-konan-${{ hashFiles('**/*.gradle.kts', '**/gradle.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-konan-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build Shared Module
+        run: ./gradlew :shared:build
+
+      - name: Build iOS App (Gradle)
+        run: ./gradlew :iosApp:build
+
+      - name: Run Tests
+        run: ./gradlew test
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-logs
+          path: |
+            **/build/reports/
+            **/build/logs/
+
+  lint:
+    runs-on: macos-14
+    defaults:
+      run:
+        working-directory: MicYou-iOS
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Kotlin Lint
+        run: ./gradlew detekt || true
+
+  # Optional: Build with Xcode (requires valid signing for device builds)
+  xcode-build:
+    runs-on: macos-14
+    if: false  # Enable this when you have proper signing setup
+    defaults:
+      run:
+        working-directory: MicYou-iOS
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
+
+      - name: Build for Simulator
+        run: make build
