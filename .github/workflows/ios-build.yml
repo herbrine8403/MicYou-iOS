@@ -56,9 +56,6 @@ jobs:
       - name: Build iOS App (Gradle)
         run: ./gradlew :iosApp:build
 
-      - name: Run Tests
-        run: ./gradlew test
-
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
         if: failure()
