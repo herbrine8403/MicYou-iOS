@@ -55,11 +55,14 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      - name: List Available Tasks
+        run: ./gradlew :iosApp:tasks --group=build | head -50
+
       - name: Build Shared Module
         run: ./gradlew :shared:build
 
-      - name: Build iOS App Framework
-        run: ./gradlew :iosApp:linkDebugFrameworkIosSimulatorArm64
+      - name: Build iOS Framework
+        run: ./gradlew :iosApp:build
 
       - name: Find Framework
         id: find-framework
