@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinSingleTargetConfig
+
 plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose")
@@ -5,7 +7,12 @@ plugins {
 }
 
 kotlin {
-    iosArm64()
+    iosArm64 {
+        binaries.framework("iosApp") {
+            baseName = "iosApp"
+            isStatic = true
+        }
+    }
     iosSimulatorArm64()
     iosX64()
 
