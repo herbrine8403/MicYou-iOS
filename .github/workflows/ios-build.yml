@@ -62,7 +62,7 @@ jobs:
         run: ./gradlew :shared:build
 
       - name: Build iOS Framework (Device)
-        run: ./gradlew :iosApp:iosArm64Binaries
+        run: ./gradlew :iosApp:linkIosArm64
 
       - name: Find and Copy Framework
         id: find-framework
