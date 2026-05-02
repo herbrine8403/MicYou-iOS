@@ -70,9 +70,9 @@ internal actual fun TransportClient.platformSendControlData(data: ByteArray): Bo
     if (fd < 0) return false
 
     val sent = data.usePinned { pinned ->
-        send(fd, pinned.addressOf(0), data.size.convert(), 0)
+        send(fd, pinned.addressOf(0), data.size.convert(), 0).toInt()
     }
-    return sent == data.size.convert()
+    return sent == data.size
 }
 
 internal actual fun TransportClient.platformWaitForAck(): TransportClient.AckResult {
