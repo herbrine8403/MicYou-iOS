@@ -1,5 +1,8 @@
 package com.micyou.ios
 
+/**
+ * iOS-specific platform bridge for audio capture.
+ */
 actual class PlatformBridge {
     private val bridge = MicYouAudioBridge()
 

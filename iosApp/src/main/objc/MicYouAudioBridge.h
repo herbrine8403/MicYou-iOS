@@ -3,21 +3,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * MicYouAudioBridge - Objective-C bridge for iOS audio capture.
+ * MicYouAudioBridgeOC - Objective-C bridge for iOS audio capture.
  *
  * This class wraps AVAudioEngine to capture microphone input and
  * forward PCM frames to the Kotlin side via a callback block.
- *
- * Usage:
- *   MicYouAudioBridge *bridge = [[MicYouAudioBridge alloc] init];
- *   [bridge setFrameCallback:^(NSData *pcmData, int sampleRate, int channels) {
- *       // Send pcmData to network
- *   }];
- *   [bridge startCapture];
- *   // ... later
- *   [bridge stopCapture];
  */
-@interface MicYouAudioBridge : NSObject
+@interface MicYouAudioBridgeOC : NSObject
 
 - (instancetype)init;
 
@@ -46,11 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Status message.
  */
 - (NSString *)stopCapture;
-
-/**
- * Check if currently capturing.
- */
-- (BOOL)isCapturing;
 
 @end
 

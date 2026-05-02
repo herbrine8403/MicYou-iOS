@@ -1,7 +1,7 @@
 #import "MicYouAudioBridge.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface MicYouAudioBridge ()
+@interface MicYouAudioBridgeOC ()
 @property (nonatomic, strong) AVAudioEngine *audioEngine;
 @property (nonatomic, strong) AVAudioSession *audioSession;
 @property (nonatomic, copy) void (^frameCallback)(NSData *pcmData, int sampleRate, int channels);
@@ -10,7 +10,7 @@
 @property (nonatomic, assign) int channels;
 @end
 
-@implementation MicYouAudioBridge
+@implementation MicYouAudioBridgeOC
 
 - (instancetype)init {
     self = [super init];
@@ -31,7 +31,6 @@
 - (NSString *)prepareAudio {
     NSError *error = nil;
 
-    // Configure audio session for recording
     BOOL success = [self.audioSession setCategory:AVAudioSessionCategoryPlayAndRecord
                                              mode:AVAudioSessionModeDefault
                                           options:AVAudioSessionCategoryOptionDefaultToSpeaker |
@@ -47,18 +46,15 @@
         return [NSString stringWithFormat:@"Failed to activate session: %@", error.localizedDescription];
     }
 
-    // Get preferred sample rate
     self.sampleRate = (int)self.audioSession.sampleRate;
     if (self.sampleRate <= 0) {
         self.sampleRate = 48000;
     }
 
-    // Configure input node format
     AVAudioInputNode *inputNode = self.audioEngine.inputNode;
     AVAudioFormat *inputFormat = [inputNode outputFormatForBus:0];
     self.channels = (int)inputFormat.channelCount;
 
-    // Install tap on input node
     AVAudioFormat *recordingFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatInt16
                                                                        sampleRate:self.sampleRate
                                                                          channels:(AVAudioChannelCount)self.channels
@@ -70,7 +66,7 @@
 
     __weak typeof(self) weakSelf = self;
     [inputNode installTapOnBus:0
-                    bufferSize:480  // 10ms at 48kHz mono
+                    bufferSize:480
                         format:recordingFormat
                          block:^(AVAudioPCMBuffer *buffer, AVAudioTime *when) {
         [weakSelf processAudioBuffer:buffer];
@@ -109,10 +105,6 @@
     return @"Capture stopped";
 }
 
-- (BOOL)isCapturing {
-    return self.capturing;
-}
-
 #pragma mark - Private
 
 - (void)processAudioBuffer:(AVAudioPCMBuffer *)buffer {
@@ -121,7 +113,6 @@
     int frameLength = (int)buffer.frameLength;
     if (frameLength == 0) return;
 
-    // Convert PCM buffer to NSData
     int16_t *int16Data = buffer.int16ChannelData[0];
     int byteLength = frameLength * self.channels * sizeof(int16_t);
     NSData *pcmData = [NSData dataWithBytes:int16Data length:byteLength];

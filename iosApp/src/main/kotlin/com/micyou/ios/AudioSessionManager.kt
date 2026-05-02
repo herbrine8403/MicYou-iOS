@@ -5,7 +5,6 @@ import com.micyou.ios.shared.AudioStatus
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import platform.Foundation.NSUUID
 
 /**
  * Manages iOS audio capture session.
@@ -25,7 +24,7 @@ class AudioSessionManager {
     private val _audioStatus = MutableStateFlow(AudioStatus())
     val audioStatus: StateFlow<AudioStatus> = _audioStatus.asStateFlow()
 
-    private val deviceId = NSUUID.UUID().UUIDString()
+    private val deviceId = generateDeviceId()
     private var deviceName = "iPhone"
     private var audioConfig = AudioConfig()
 
@@ -133,5 +132,21 @@ class AudioSessionManager {
             bytesSent = _audioStatus.value.bytesSent + pcmData.size,
             packetsSent = _audioStatus.value.packetsSent + 1
         )
+    }
+
+    private fun generateDeviceId(): String {
+        // Simple UUID generation without platform-specific APIs
+        val chars = "0123456789ABCDEF"
+        return buildString {
+            repeat(8) { append(chars.random()) }
+            append("-")
+            repeat(4) { append(chars.random()) }
+            append("-")
+            repeat(4) { append(chars.random()) }
+            append("-")
+            repeat(4) { append(chars.random()) }
+            append("-")
+            repeat(12) { append(chars.random()) }
+        }.lowercase()
     }
 }
