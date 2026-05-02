@@ -67,11 +67,12 @@ jobs:
       - name: Find and Copy Framework
         id: find-framework
         run: |
-          echo "=== Listing iosApp/build directory ==="
-          ls -laR iosApp/build/ 2>/dev/null | head -100 || echo "No build directory"
+          echo "=== Listing iosApp/build/bin/iosArm64 ==="
+          ls -laR iosApp/build/bin/iosArm64/ 2>/dev/null | head -50 || echo "No bin directory"
           echo ""
           echo "=== Finding all .framework directories ==="
           FRAMEWORK_DIR=$(find iosApp/build -name "*.framework" -type d 2>/dev/null | head -1)
+          echo "Found framework dirs: $FRAMEWORK_DIR"
           if [ -n "$FRAMEWORK_DIR" ] && [ -d "$FRAMEWORK_DIR" ]; then
             FRAMEWORK_NAME=$(basename "$FRAMEWORK_DIR")
             mkdir -p iosApp/build/libs
@@ -79,7 +80,10 @@ jobs:
             echo "framework_path=iosApp/build/libs/$FRAMEWORK_NAME" >> $GITHUB_OUTPUT
             echo "Found and copied framework: $FRAMEWORK_NAME"
           else
-            echo "No framework found in iosApp/build"
+            echo "Checking alternative locations..."
+            ls -la iosApp/build/bin/iosArm64/*/ 2>/dev/null || echo "No subdirs"
+            ls -la iosApp/build/bin/iosArm64/debug/ 2>/dev/null || echo "No debug dir"
+            ls -la iosApp/build/libs/ 2>/dev/null || echo "No libs dir"
           fi
 
       - name: Update project.yml with Framework Path
