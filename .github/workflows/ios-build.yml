@@ -61,8 +61,19 @@ jobs:
       - name: Build Shared Module
         run: ./gradlew :shared:build
 
+      - name: List iOS Tasks
+        run: ./gradlew :iosApp:tasks --group=build | grep -i "framework\|link\|ios"
+
       - name: Build iOS Framework
-        run: ./gradlew :iosApp:build
+        run: |
+          FRAMEWORK_TASK=$(./gradlew :iosApp:tasks --group=build 2>/dev/null | grep -i "framework" | head -1 | awk '{print $1}')
+          if [ -n "$FRAMEWORK_TASK" ]; then
+            echo "Running task: $FRAMEWORK_TASK"
+            ./gradlew :iosApp:$FRAMEWORK_TASK
+          else
+            echo "No framework task found, compiling Kotlin..."
+            ./gradlew :iosApp:compileKotlinIosSimulatorArm64
+          fi
 
       - name: Find and Copy Framework
         id: find-framework
